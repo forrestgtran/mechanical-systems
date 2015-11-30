@@ -1,0 +1,39 @@
+/*Custom CSS for Personal Website*/
+
+.contact-text {
+	color: #d8d8d8;
+}
+
+.pp {
+	font-size: 1.13em;
+}
+
+.arrow-down a {
+	color: #FFFFFF;
+}
+
+.arrow-down 
+a:hover,
+/*a:focus,*/
+a:active,
+a.active {
+	color: #5bd65b;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+
+.quicklinks a {
+	color: #FFFFFF;
+}
+
+.quicklinks 
+a:hover,
+a:focus,
+a:active,
+a.active {
+	color: #5bd65b;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
