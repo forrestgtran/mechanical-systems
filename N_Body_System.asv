@@ -11,10 +11,10 @@ initial_mass_vector = zeros(Number_of_Bodies)
 initial_values = zeros(Number_of_Bodies)
 
 for n = 1:Number_of_Bodies
-    initial_values(4n-3) = randPosX;
-    initial_values(4n-2) = randPosY;
-    initial_values(4n-1) = randVelX;
-    initial_values(4n) = randVelY;
+    initial_values(4n-3) = 
+    initial_values(4n-2) =
+    initial_values(4n-1) =
+    initial_values(4n-3) = 
     
 end
 
@@ -25,19 +25,10 @@ end
 % end
     
     function res = randMass
-        %Range = 1e27 to 1e31
     end
-    function res = randPosX
-        %Range = 1e10 to 1e12
+    function res = randPos
     end
-    function res = randPosY
-        %Range = 1e10 to 1e12
-    end
-    function res = randVelX
-        %Range = 1e4 to 1e5
-    end
-    function res = randVelY
-        %Range = 1e4 to 1e5
+    function res = randVel
     end
 
 % Star 1
