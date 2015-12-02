@@ -1,22 +1,14 @@
 % Now with animation!
-function res = celestial_mechanics_2 ()
+function res = N_Body_System ()
 %% initialize values 
 Number_of_Bodies = 3;
 MatrixWidth = 5;
-
-
 
 %Matrix if 4 wide and number of bodies down
 initial_mass_vector = zeros(Number_of_Bodies) 
 initial_values = zeros(Number_of_Bodies)
 
-for n = 1:Number_of_Bodies
-    initial_values(4n-3) = randPosX;
-    initial_values(4n-2) = randPosY;
-    initial_values(4n-1) = randVelX;
-    initial_values(4n) = randVelY;
-    
-end
+
 
 % for column=1:MatrixWidth
 %     for row=1:Number_of_Bodies
@@ -24,38 +16,15 @@ end
 %     end
 % end
     
-    function res = randMass
-        %Range = 1e27 to 1e31
+%% Define Initial Values for each Body
+  
+    for n = 1:Number_of_Bodies
+    initial_values(4*n-3) = randPosX;
+    initial_values(4*n-2) = randPosY;
+    initial_values(4*n-1) = randVelX;
+    initial_values(4*n) = randVelY;
+    masses(n) = randMass;
     end
-    function res = randPosX
-        %Range = 1e10 to 1e12
-    end
-    function res = randPosY
-        %Range = 1e10 to 1e12
-    end
-    function res = randVelX
-        %Range = 1e4 to 1e5
-    end
-    function res = randVelY
-        %Range = 1e4 to 1e5
-    end
-
-% Star 1
-m1  =  2e30                    ;%mass of Sun (kg)
-P1i =  [0, 0]                  ;%star location vector
-V1i =  [0, 0]                  ;%initial orbital velocity of star 2 (m/s)
-
-% Body 2
-m2  =  1.8986e27               ;%mass of body 2 (kg)
-P2i =  [778500000000, 0]       ;%planet location vector
-V2i =  [0, 13100]              ;%initial orbital velocity of star 2 (m/s)
-
-% Body 3
-m3  =  1.8986e27               ;%mass of body 3 (kg)
-P3i =  [-778500000000, 0]       ;%planet location vector
-V3i =  [0, -13100]              ;%initial orbital velocity of star 3 (m/s)
-
-initial_values = [P1i, V1i, P2i, V2i, P3i, V3i];
 
 %% universe variables
 G = 6.67e-11 ; %Nm^2/kg^2
@@ -76,6 +45,34 @@ hold on
 
  %res = Output
 animate_func (T, Output)
+
+%% Random Generation
+    function res = randMass
+        %Range = 1e27 to 1e31
+        res = GenerateRandom (1e27, 1e31);
+    end
+    function res = randPosX
+        %Range = 1e10 to 1e12
+        res = GenerateRandom (1e10, 1e12);
+    end
+    function res = randPosY
+        %Range = 1e10 to 1e12
+        res = GenerateRandom (1e10, 1e12);
+    end
+    function res = randVelX
+        %Range = 1e4 to 1e5
+        res = GenerateRandom (1e4, 1e5);
+    end
+    function res = randVelY
+        %Range = 1e4 to 1e5
+        res = GenerateRandom (1e4, 1e5);
+    end
+
+    function res = GenerateRandom (x1, x2)
+        %generating random value in a range
+        %starting value + delta * rand
+       res = x1 + (rand * (x1-x2)); 
+    end
 
 %% functions
     function res = jupitergoesvroom (~, W)
